@@ -2,10 +2,7 @@
 
 FactoryGirl.define do
   factory :collaborator do
-    factory :wiki do
-      name "My String"
-      body "My Text"
-      private false
-      user nil
+    user nil
+    wiki nil
   end
 end

@@ -2,6 +2,10 @@ class WikisController < ApplicationController
   before_action :set_wiki, only: [:show, :edit, :update, :destroy]
   before_action :set_user
 
+  def public
+    @wikis = Wiki.where('private = ?', false)
+  end
+
   # GET /wikis
   # GET /wikis.json
   def index
