@@ -1,5 +1,6 @@
 class CollaboratorsController < ApplicationController
   before_action :set_collaborator, only: [:show, :edit, :update, :destroy]
+  before_action :set_wiki, only: [:new, :create, :index]
 
   # GET /collaborators
   # GET /collaborators.json
@@ -74,6 +75,6 @@ class CollaboratorsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def collaborator_params
-      params[:collaborator]
+      params.require(:collaborator).permit(:user_id, :wiki_id)
     end
 end
