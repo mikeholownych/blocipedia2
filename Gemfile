@@ -15,6 +15,7 @@ gem 'pundit'
 gem 'figaro'
 gem 'redcarpet'
 gem 'epic-editor-rails'
+gem 'friendly_id'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_21]
