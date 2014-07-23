@@ -10,6 +10,7 @@
   <%= markdown(@wiki.body) %>
 </p>
 
-
-<%= link_to 'Edit', edit_wiki_path(@wiki) %> |
+<%= if @wiki.user == current_user %>
+  <%= link_to 'Edit', edit_wiki_path(@wiki) %> |
+<% end %>
 <%= link_to 'Back', wikis_path %>

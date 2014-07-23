@@ -9,7 +9,8 @@ class WikisController < ApplicationController
   # GET /wikis
   # GET /wikis.json
   def index
-    @wikis = Wiki.all
+    @wikis = current_user.wikis
+    @colspan = @user.premium? ? 4 : 2
   end
 
   # GET /wikis/1
@@ -19,7 +20,7 @@ class WikisController < ApplicationController
 
   # GET /wikis/new
   def new
-    @wiki = Wiki.new
+    @wiki = current_user.wikis.new
   end
 
   # GET /wikis/1/edit
@@ -29,7 +30,7 @@ class WikisController < ApplicationController
   # POST /wikis
   # POST /wikis.json
   def create
-    @wiki = Wiki.new(wiki_params)
+    @wiki = current_user.wikis.new(wiki_params)
 
     respond_to do |format|
       if @wiki.save
