@@ -8,13 +8,13 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
-gem 'turbolinks'
 gem 'bootstrap-sass'
 gem 'devise'
 gem 'pg'
 gem 'pundit'
 gem 'figaro'
 gem 'redcarpet'
+gem 'epic-editor-rails'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_21]
