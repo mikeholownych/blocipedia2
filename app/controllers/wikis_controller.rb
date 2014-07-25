@@ -10,7 +10,7 @@ class WikisController < ApplicationController
   # GET /wikis.json
   def index
     @wikis = current_user.wikis
-    @collaborations = current_user.collaborations
+    @collaborations = current_user.wiki_collaborators
     @colspan = @user.premium? ? 4 : 2
   end
 
@@ -26,6 +26,7 @@ class WikisController < ApplicationController
 
   # GET /wikis/1/edit
   def edit
+    @users = User.all
   end
 
   # POST /wikis
@@ -80,6 +81,6 @@ class WikisController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def wiki_params
-      params.require(:wiki).permit(:name, :body, :private, :user_id)
+      params.require(:wiki).permit(:name, :body, :user_id, :private, :collaborator_ids => [])
     end
 end

@@ -11,20 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140723013125) do
+ActiveRecord::Schema.define(version: 20140724174319) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "collaborators", force: true do |t|
-    t.integer  "user_id"
-    t.integer  "wiki_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+  create_table "collaborators", id: false, force: true do |t|
+    t.integer "user_id"
+    t.integer "wiki_id"
   end
 
-  add_index "collaborators", ["user_id"], name: "index_collaborators_on_user_id", using: :btree
-  add_index "collaborators", ["wiki_id"], name: "index_collaborators_on_wiki_id", using: :btree
+  add_index "collaborators", ["user_id", "wiki_id"], name: "collaborators_index", unique: true, using: :btree
 
   create_table "friendly_id_slugs", force: true do |t|
     t.string   "slug",                      null: false

@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   has_many :wikis
-  has_and_belongs_to_many :collaborators
+  has_and_belongs_to_many :wiki_collaborators, :class_name => 'Wiki', :join_table => 'collaborators'
 
   enum role: [:user, :vip, :admin]
   after_initialize :set_default_role, :if => :new_record?
@@ -16,12 +16,4 @@ class User < ActiveRecord::Base
 
   scope :premium, -> { where(premium: true) }
   scope :not, ->(id) { where('id != ?', id) }
-
-  def collaborations
-    wikis = []
-    Collaborator.where(user: self).each do |collaboration|
-      wikis << Wiki.find(collaboration.wiki_id)
-    end
-    wikis
-  end
 end
