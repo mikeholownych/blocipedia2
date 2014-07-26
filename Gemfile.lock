@@ -82,6 +82,8 @@ GEM
       rails (>= 3, < 5)
     friendly_id (5.0.4)
       activerecord (>= 4.0.0)
+    habtm_generator (0.2)
+      activerecord (~> 4.1.0.rc1)
     hike (1.2.3)
     hub (1.12.2)
     i18n (0.6.11)
@@ -230,6 +232,7 @@ DEPENDENCIES
   faker
   figaro
   friendly_id
+  habtm_generator
   hub
   jbuilder (~> 2.0)
   jquery-rails

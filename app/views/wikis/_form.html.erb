@@ -25,6 +25,11 @@
       <%= f.label :private %><br>
       <%= f.check_box :private %>
     </div>
+    <div class="field">
+      <%= f.label :collaborators %><br>
+      <% @users.each do |user| %>
+        <%= check_box_tag "wiki[collaborator_ids][]",  user.id %><%= user.name || user.email %>
+      <% end %>
   <% end %>
 
   <div class="actions">
