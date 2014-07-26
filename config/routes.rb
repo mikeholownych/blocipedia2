@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
-  resources :collaborators
 
   get '/wikis/public', to: 'wikis#public'
 
-  resources :wikis
+  resources :wikis do
+    resources :collaborators
+  end
 
   resources :charges, only: [:new, :create]
 
