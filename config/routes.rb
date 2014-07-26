@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   resources :wikis
 
+  resources :charges, only: [:new, :create]
+
   root to: 'visitors#index'
   devise_for :users
   resources :users
