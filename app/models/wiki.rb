@@ -1,4 +1,5 @@
 class Wiki < ActiveRecord::Base
   belongs_to :user
-  has_many_and_belongs_to :collaborators
+  has_many :collaborators
+  has_many :users, through: :collaborators
 end
