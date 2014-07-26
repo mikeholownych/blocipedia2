@@ -2,5 +2,9 @@
 
 FactoryGirl.define do
   factory :wiki do
+    name "MyString"
+    body "MyText"
+    private false
+    user nil
   end
 end
