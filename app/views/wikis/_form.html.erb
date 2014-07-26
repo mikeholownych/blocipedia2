@@ -20,7 +20,7 @@
   </div>
   <%= f.text_area :body, id: "epictextarea", class: 'hide' %>
 
-  <% if @user.premium? %>
+  <% if @user.premium? && @wiki.user == current_user %>
     <div class="field">
       <%= f.label :private %><br>
       <%= f.check_box :private %>

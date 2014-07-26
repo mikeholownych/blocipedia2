@@ -3,8 +3,7 @@ class Wiki < ActiveRecord::Base
   friendly_id :name, use: :slugged
 
   belongs_to :user
-  has_many :collaborators
-  has_many :users, through: :collaborators
+  has_and_belongs_to_many :collaborators
 
   def should_generate_new_friendly_id?
     name_changed?

@@ -10,6 +10,7 @@ class WikisController < ApplicationController
   # GET /wikis.json
   def index
     @wikis = current_user.wikis
+    @collaborations = current_user.collaborations
     @colspan = @user.premium? ? 4 : 2
   end
 
