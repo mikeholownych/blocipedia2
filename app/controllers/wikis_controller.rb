@@ -26,7 +26,7 @@ class WikisController < ApplicationController
 
   # GET /wikis/1/edit
   def edit
-    @users = User.all
+    @users = User.where('id != ?', current_user.id)
   end
 
   # POST /wikis
