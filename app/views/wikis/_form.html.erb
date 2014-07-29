@@ -29,7 +29,7 @@
       <div class="field">
         <%= f.label :collaborators %><br>
         <% @users.each do |user| %>
-          <%= check_box_tag "wiki[collaborator_ids][]",  user.id %><%= user.name || user.email %>
+          <%= check_box_tag "wiki[collaborator_ids][]",  user.id, @collaborators.include?(user) %><%= user.name || user.email %>
         <% end %>
       </div>
     <% end %>

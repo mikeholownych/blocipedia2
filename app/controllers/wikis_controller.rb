@@ -10,8 +10,7 @@ class WikisController < ApplicationController
   # GET /wikis.json
   def index
     @wikis = current_user.wikis
-    @collaborations = current_user.wiki_collaborators
-    @colspan = @user.premium? ? 4 : 2
+    @collaborations = current_user.collaborators
   end
 
   # GET /wikis/1
@@ -27,6 +26,7 @@ class WikisController < ApplicationController
   # GET /wikis/1/edit
   def edit
     @users = User.where('id != ?', current_user.id)
+    @collaborators = @wiki.collaborators
   end
 
   # POST /wikis
